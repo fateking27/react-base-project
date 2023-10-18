@@ -1,0 +1,73 @@
+.tabs {
+  /* background-color: dodgerblue; */
+  height: 40px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  .tab {
+    background-color: skyblue;
+    height: 30px;
+    margin: 10px;
+    width: 50px;
+    text-align: center;
+    line-height: 30px;
+  }
+}
+.header {
+  background-color: white;
+}
+
+.active {
+  background-color: rgb(236, 89, 21) !important;
+}
+
+table {
+  /* border: solid 1px #000; */
+  text-align: center;
+  border-collapse: collapse;
+  background-color: white;
+}
+thead {
+  color: white;
+  background-color: #000;
+}
+
+#del,
+#edit {
+  color: white;
+  background-color: black;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* h1 {
+  font-size: 24px;
+}
+
+.license-plate {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.selected-plate {
+  font-weight: bold;
+} */
+
+.box {
+  background-color: aliceblue;
+  height: 170px;
+  width: 120px;
+  font-size: 14px;
+  display: inline-block;
+  margin: 0 10px;
+  .pageimg {
+    background-color: #000;
+    color: white;
+    width: 105px;
+    height: 120px;
+  }
+}
