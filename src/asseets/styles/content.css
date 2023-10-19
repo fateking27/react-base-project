@@ -8,7 +8,7 @@
     background-color: skyblue;
     height: 30px;
     margin: 10px;
-    width: 50px;
+    width: 60px;
     text-align: center;
     line-height: 30px;
   }
@@ -57,17 +57,27 @@ thead {
   font-weight: bold;
 } */
 
+button{
+  color: white;
+  background-color: #044f72;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+  margin: 5px;
+  padding: 0 5px;
+}
+
 .box {
   background-color: aliceblue;
-  height: 170px;
-  width: 120px;
+  height: 200px;
+  width: 140px;
   font-size: 14px;
   display: inline-block;
   margin: 0 10px;
   .pageimg {
     background-color: #000;
     color: white;
-    width: 105px;
+    width: 115px;
     height: 120px;
   }
 }

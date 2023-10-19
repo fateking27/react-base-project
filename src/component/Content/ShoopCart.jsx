@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "../../asseets/styles/content.css";
 
-export default function ShoopCart({ buyCart }) {
+export default function ShoopCart({ buyCart, del, addnum, subnum }) {
   useEffect(() => {
     console.log(buyCart);
+    total();
   });
+
+  const [sums, setSums] = useState(0);
+  const total = () => {
+    let sum = 0;
+    buyCart.forEach((item) => {
+      sum += item.pir * item.sum;
+      setSums(sum);
+    });
+  };
+
+  const [checkAll, setCheckAll] = useState(false);
+  const [newArr,setNewArr] = useState([])
+  const checkedAll = ()=>{
+    console.log("aaa")
+    setCheckAll(!checkAll)
+  }
 
   return (
     <div>
@@ -12,8 +29,10 @@ export default function ShoopCart({ buyCart }) {
       <table width={900} border={1}>
         <thead>
           <tr>
-            <th>
-              <input type="checkbox" defaultChecked={true} />
+            <th onClick={()=>{
+              checkedAll()
+            }}>
+              <input type="checkbox" checked={checkAll} onChange={()=>{}}/>
             </th>
             <th>编号</th>
             <th>图片</th>
@@ -25,24 +44,54 @@ export default function ShoopCart({ buyCart }) {
           </tr>
         </thead>
         <tbody>
-          {buyCart.map((item,index) => {
+          {buyCart.map((item, index) => {
             return (
               <tr key={item.id}>
                 <td>
-                  <input type="checkbox" />
+                  <input type="checkbox" checked={checkAll}/>
                 </td>
-                <td>{index+1}</td>
+                <td>{index + 1}</td>
                 <td>{item.bookimg}</td>
                 <td>{item.bookname}</td>
                 <td>{item.pir}</td>
-                <td></td>
-                <td></td>
                 <td>
-                  <button id="del">删除</button>
+                  <button
+                    onClick={() => {
+                      addnum(item.id);
+                    }}
+                    style={{ margin: 5, width: 25 }}
+                  >
+                    +
+                  </button>
+                  {item.sum}
+                  <button
+                    disabled={item.sum === 0}
+                    onClick={() => {
+                      subnum(item.id);
+                    }}
+                    style={{ width: 25, margin: 5 }}
+                  >
+                    -
+                  </button>
+                </td>
+                <td>{"￥" + item.pir * item.sum}</td>
+                <td>
+                  <button
+                    id="del"
+                    onClick={() => {
+                      del(item.id);
+                    }}
+                  >
+                    删除
+                  </button>
                 </td>
               </tr>
             );
           })}
+          <tr>
+            <td>总计</td>
+            <td colSpan={7}>￥{sums}</td>
+          </tr>
         </tbody>
       </table>
     </div>
