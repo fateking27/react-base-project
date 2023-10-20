@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../asseets/styles/content.css";
+import Header from "../Header/Header";
 import Comm from "./Comm_";
 import Matters from "./matters";
 import Cart from "./Cart";
@@ -25,6 +26,7 @@ export default class Content extends Component {
 
     return (
       <>
+        <Header></Header>
         <div className="tabs">
           {tabs.map((item, index) => {
             return (

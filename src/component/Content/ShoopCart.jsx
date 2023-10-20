@@ -3,7 +3,6 @@ import "../../asseets/styles/content.css";
 
 export default function ShoopCart({ buyCart, del, addnum, subnum }) {
   useEffect(() => {
-    console.log(buyCart);
     total();
   });
 
@@ -17,22 +16,32 @@ export default function ShoopCart({ buyCart, del, addnum, subnum }) {
   };
 
   const [checkAll, setCheckAll] = useState(false);
-  const [newArr,setNewArr] = useState([])
-  const checkedAll = ()=>{
-    console.log("aaa")
-    setCheckAll(!checkAll)
-  }
+  const [newArr, setNewArr] = useState([]);
+  const checkedAll = () => {
+    console.log("aaa");
+    setCheckAll(!checkAll);
+  };
+
+  const addItem = (item) => {
+    setNewArr([...newArr, item]);
+    if (newArr.length == buyCart.length) {
+      setCheckAll(true);
+    }
+    console.log("pppp", newArr);
+  };
 
   return (
     <div>
       <h3>购物车</h3>
-      <table width={900} border={1}>
+      <table width={830} border={1}>
         <thead>
           <tr>
-            <th onClick={()=>{
-              checkedAll()
-            }}>
-              <input type="checkbox" checked={checkAll} onChange={()=>{}}/>
+            <th
+              onClick={() => {
+                checkedAll();
+              }}
+            >
+              <input type="checkbox" checked={checkAll} onChange={() => {}} />
             </th>
             <th>编号</th>
             <th>图片</th>
@@ -47,8 +56,12 @@ export default function ShoopCart({ buyCart, del, addnum, subnum }) {
           {buyCart.map((item, index) => {
             return (
               <tr key={item.id}>
-                <td>
-                  <input type="checkbox" checked={checkAll}/>
+                <td
+                  onClick={() => {
+                    addItem(item);
+                  }}
+                >
+                  <input type="checkbox" onChange={() => {}} />
                 </td>
                 <td>{index + 1}</td>
                 <td>{item.bookimg}</td>

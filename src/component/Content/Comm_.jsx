@@ -238,7 +238,7 @@ export default class Comm extends Component {
         /> */}
         {/* <button onClick={() => {}}>添加优惠卷</button> */}
         <Modal btnText={"新增"} add={this.add} title={"新增优惠劵"}></Modal>
-        <table width={900} border={1}>
+        <table style={{width:"75vw"}} border={1}>
           <thead>
             <tr>
               <th>编号</th>
