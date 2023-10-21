@@ -8,11 +8,15 @@ export default function ShoopCart({ buyCart, del, addnum, subnum }) {
 
   const [sums, setSums] = useState(0);
   const total = () => {
+    console.log("oooooo");
     let sum = 0;
     buyCart.forEach((item) => {
       sum += item.pir * item.sum;
       setSums(sum);
     });
+    if (buyCart.length == 0) {
+      setSums(0);
+    }
   };
 
   const [checkAll, setCheckAll] = useState(false);

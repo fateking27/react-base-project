@@ -35,7 +35,7 @@ const menus = [
       {
         key: "/home/list",
         icon: <UploadOutlined></UploadOutlined>,
-        label: <Link to="/home/shop">商品列表</Link>,
+        label: <Link to="/home/list">商品列表</Link>,
       },
       {
         key: "/home/category",
