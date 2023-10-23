@@ -18,7 +18,12 @@ export default function Home() {
   } = theme.useToken();
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        style={{ position: "fixed", zIndex:"1", minHeight:"100vh" }}
+      >
         <div className="demo-logo-vertical" />
         <img
           style={{ width: "140px" }}
@@ -26,9 +31,8 @@ export default function Home() {
         />
 
         <MyMenu></MyMenu>
-        
       </Sider>
-      <Layout>
+      <Layout style={{marginLeft:"200px"}}>
         <Header
           style={{
             padding: 0,

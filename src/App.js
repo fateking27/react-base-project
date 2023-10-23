@@ -8,7 +8,7 @@ import NotFind from "./views/NotFind/NotFind";
 import Content from "./component/Content/Content";
 import Salary from '../src/component/MenuItems/Chart/Salary'
 import Category from '../src/component/MenuItems/Product/Category'
-import List from '../src/component/MenuItems/Product/List'
+import List from './component/MenuItems/Product/GoodList'
 import Role from '../src/component/MenuItems/Role/Role'
 import Shpo from '../src/component/MenuItems/Shop/Shop'
 

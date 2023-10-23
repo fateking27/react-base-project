@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from "react";
 import { Card, Table, Button, Modal, Form, Input, Select, message } from "antd";
-import apis from "../../../apis/index";
+import apis from "../../../apis";
 const { Option } = Select;
 
 const layout = {
@@ -87,6 +87,7 @@ export default function Category() {
     if (res.data.code) {
       message.success("添加成功");
       //关闭模态框，更新页面请求
+      fetchData();
     } else {
       message.error("添加失败");
     }

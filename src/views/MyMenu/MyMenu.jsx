@@ -7,9 +7,10 @@ export default function MyMenu() {
     <Menu
       theme="dark"
       mode="inline"
-      defaultSelectedKeys={['/home']}
+      defaultSelectedKeys={["/home"]}
       defaultOpenKeys={["/home"]}
       items={config}
+      style={{ overflowY: "auto", height:"585px", }}
     ></Menu>
   );
 }
