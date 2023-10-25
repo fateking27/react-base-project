@@ -18,9 +18,9 @@ instance.interceptors.response.use(
   (res) => res,
   (error) => {
     if (error?.response?.status == 401) {
+      message.warning("登录已过期，请重新登录");
       setTimeout(() => {
-        message.warning("登录已过期，请重新登录");
-        window.location.href = "/login"
+        window.location.href = "/login";
       }, 500);
     } else if (error?.response?.status == 404) {
       message.error("资源找不到，请重试");
