@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import MyMenu from "../MyMenu/MyMenu";
 import { Layout, Menu, Button, theme } from "antd";
+import { useNavigate } from "react-router-dom";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -12,6 +13,7 @@ import {
 const { Header, Sider, Content } = Layout;
 
 export default function Home() {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -49,6 +51,11 @@ export default function Home() {
               height: 64,
             }}
           />
+          <Button type="dashed" onClick={()=>{
+            localStorage.removeItem("token")
+            localStorage.removeItem("userInfo")
+            navigate("/login")
+          }}>退出登录</Button>
         </Header>
         <Content
           style={{
