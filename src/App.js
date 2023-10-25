@@ -11,6 +11,7 @@ import Category from '../src/component/MenuItems/Product/Category'
 import List from './component/MenuItems/Product/GoodList'
 import Role from '../src/component/MenuItems/Role/Role'
 import Shpo from '../src/component/MenuItems/Shop/Shop'
+import GoodsAdd from "./component/MenuItems/Product/GoodsAdd";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="list" element={<List></List>}></Route>
             <Route path="role" element={<Role></Role>}></Route>
             <Route path="shop" element={<Shpo></Shpo>}></Route>
+            <Route path="goodsAdd" element={<GoodsAdd></GoodsAdd>}></Route>
           </Route>
           <Route path="/404" element={<NotFind></NotFind>}></Route>
           {/* 如果路由无法匹配，则代表路径映射失败，进入404页面 */}
