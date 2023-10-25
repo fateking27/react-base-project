@@ -57,7 +57,7 @@ const menus = [
       {
         key: "/home/sale",
         icon: <VideoCameraOutlined />,
-        label: "销售管理",
+        label: <Link to="/home/salary">销售管理</Link>,
       },
     ],
   },

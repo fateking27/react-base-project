@@ -13,6 +13,7 @@ import {
 } from "antd";
 import api from "../../../apis/index";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+import Item from "antd/es/list/Item";
 const { TextArea } = Input;
 
 const GoodsAdd = () => {
@@ -24,7 +25,9 @@ const GoodsAdd = () => {
   const [loading, setLoading] = useState(false);
   const [addItem, setAddItem] = useState({});
   const [update, setUpdate] = useState({});
-  const [type, setType] = useState({});
+  const [type_, setType] = useState({});
+  const [typeName, setTypeName] = useState();
+  let type = {};
 
   let location = useLocation().search.split("=")[1];
   console.log("admin_loaction", location);
@@ -35,6 +38,8 @@ const GoodsAdd = () => {
     console.log("type", res.data.data.type);
     setUpdate(res.data.data);
     setType(res.data.data.type);
+    type = res.data.data.type;
+    console.log(type);
   };
 
   const handleChange = (info) => {
@@ -63,21 +68,28 @@ const GoodsAdd = () => {
     }
   }, []);
 
-  let cateParent = [];
-
   const category = async () => {
     const res = await api.category.get({ parentId: 0 });
-    console.log(res.data.data.data);
-    cateParent = res.data.data.data;
-    console.log(
-      cateParent.find((item) => {
-        return item._id == type.parentId;
-      })
+    let id;
+    // if (type.parentId) {
+    //   id = type.parentId;
+    // } else {
+    //   id = type._id;
+    // }
+    // console.log(
+    //   res.data.data.data.find((item) => {
+    //     item._id == id;
+    //   }).name
+    // );
+    setTypeName(
+      // res.data.data.data.find((item) => {
+      //   return item._id == id;
+      // }).name
     );
   };
 
   useEffect(() => {
-    form.setFieldsValue({ ...update, type: ["", type.name] });
+    form.setFieldsValue({ ...update, type: [typeName, type_.name] });
     setAddItem({ ...addItem, imgSrc: update.imgSrc });
     setTypeId(type._id);
   }, [update]);
@@ -86,7 +98,7 @@ const GoodsAdd = () => {
     const res = await api.category.getCascader({ parentId: 0 });
     if (res.data.code == 1) {
       setCascader(res.data.data);
-      console.log(res.data.data)
+      console.log(res.data.data);
     }
   };
 
@@ -140,7 +152,7 @@ const GoodsAdd = () => {
               <Input type="number" />
             </Form.Item>
             <Form.Item label="商品简介" name="title">
-              <TextArea rows={4} />
+              <TextArea rows={5} />
             </Form.Item>
             <Form.Item label="商品详情" name="msg">
               <TextArea rows={4} />

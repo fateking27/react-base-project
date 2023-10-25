@@ -48,15 +48,15 @@ const Role = () => {
     },
     {
       title: "财务管理",
-      key: "/home/datav",
+      key: "/home/chart",
       children: [
         {
-          title: "工资数据",
+          title: "工资管理",
           key: "/home/salary",
         },
         {
-          title: "销售数据",
-          key: "/home/sales",
+          title: "销售管理",
+          key: "/home/sale",
         },
       ],
     },

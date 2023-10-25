@@ -6,18 +6,20 @@ import Home from "./views/Home/Home";
 import User from "./views/User";
 import NotFind from "./views/NotFind/NotFind";
 import Content from "./component/Content/Content";
-import Salary from '../src/component/MenuItems/Chart/Salary'
-import Category from '../src/component/MenuItems/Product/Category'
-import List from './component/MenuItems/Product/GoodList'
-import Role from '../src/component/MenuItems/Role/Role'
-import Shpo from '../src/component/MenuItems/Shop/Shop'
+import Salary from "../src/component/MenuItems/Chart/Salary";
+import Category from "../src/component/MenuItems/Product/Category";
+import List from "./component/MenuItems/Product/GoodList";
+import Role from "../src/component/MenuItems/Role/Role";
+import Shpo from "../src/component/MenuItems/Shop/Shop";
 import GoodsAdd from "./component/MenuItems/Product/GoodsAdd";
+
+import DynamicRouter from "./router/DynamicRouter";
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <Routes>
+        {/* <Routes>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/" element={<Navigate to='/home'></Navigate>}></Route>
           <Route path="/home" element={<Home></Home>}>
@@ -32,9 +34,10 @@ export default function App() {
             <Route path="goodsAdd" element={<GoodsAdd></GoodsAdd>}></Route>
           </Route>
           <Route path="/404" element={<NotFind></NotFind>}></Route>
-          {/* 如果路由无法匹配，则代表路径映射失败，进入404页面 */}
+          如果路由无法匹配，则代表路径映射失败，进入404页面
           <Route path="*" element={<Navigate to="/404"></Navigate>}></Route>
-        </Routes>
+        </Routes> */}
+        <DynamicRouter />
       </BrowserRouter>
     </div>
   );

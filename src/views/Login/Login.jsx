@@ -20,6 +20,7 @@ export default function Login() {
       <button
         onClick={() => {
           login({ account: "Gundam", password: 123456 });
+          // login({ account: "一脸无敌的承太郎~", password: 123456 });
         }}
       >
         登录
