@@ -2,11 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Space, Table, Image, Input, Select, message, Tag } from "antd";
+import XLSX from 'xlsx'
 import apis from "../../../apis";
 import { useNavigate } from "react-router-dom";
 function GoodList() {
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
+  const Excel = () => {
+    
+  }
   const info = () => {
     messageApi.info("请选择搜索类型");
   };
@@ -80,11 +84,12 @@ function GoodList() {
     //     );
     //   },
     // },
-    { title: "商品名称", dataIndex: "name", align: "center" },
+    { title: "商品名称", dataIndex: "name",width:"120px", align: "center" },
     {
       title: "商品描述",
       dataIndex: "title",
       align: "center",
+      width:'300px',
       render: (title) => {
         return title ? (
           <span>{title}</span>
@@ -95,11 +100,17 @@ function GoodList() {
         );
       },
     },
-    { title: "商品价格", dataIndex: "price", align: "center" },
+    {
+      title: "商品价格",
+      dataIndex: "price",
+      align: "center",
+      width:"120px",
+      sorter: (a, b) => a.price - b.price,
+    },
     {
       title: "商品分类",
       dataIndex: ["type", "name"],
-      // width: 150,
+      width: "200px",
       align: "center",
       render: (type) => {
         return type ? (
@@ -147,7 +158,11 @@ function GoodList() {
     <>
       {contextHolder}
 
-      <Space style={{ marginBottom: 15, marginLeft: 0 }}>
+      <Button type="primary" style={{ marginBottom: 15, marginLeft: 0 }}>
+        <Link to="http://localhost:3000/home/goodsAdd">+ 商品添加</Link>
+      </Button>
+
+      <Space style={{ marginBottom: 15, marginLeft: 20 }}>
         <Space.Compact>
           <Select
             placeholder="请选择"
@@ -179,10 +194,6 @@ function GoodList() {
           icon={<SearchOutlined />}
         ></Button>
       </Space>
-
-      <Button type="primary" style={{ marginBottom: 15, marginLeft: 535 }}>
-        <Link to="http://localhost:3000/home/goodsAdd">+ 商品添加</Link>
-      </Button>
 
       <Table
         bordered

@@ -4,10 +4,10 @@ import api from "../../apis";
 
 export default function HomePage() {
   const [cascader, setCascader] = useState([]);
-  let categores = [];
-  let arr = [];
 
   const getCascader = async () => {
+    let categores = [];
+    let arr = [];
     const res = await api.category.getCascader();
     console.log(res);
     if (res.data.code == 1) {
@@ -18,9 +18,7 @@ export default function HomePage() {
       });
       setCascader(arr);
     }
-    console.log(arr);
   };
-
 
   useEffect(() => {
     getCascader();

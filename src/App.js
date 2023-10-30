@@ -14,6 +14,7 @@ import Shpo from "../src/component/MenuItems/Shop/Shop";
 import GoodsAdd from "./component/MenuItems/Product/GoodsAdd";
 
 import DynamicRouter from "./router/DynamicRouter";
+import '../src/redux/index'
 
 export default function App() {
   return (

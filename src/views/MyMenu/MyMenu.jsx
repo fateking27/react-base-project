@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu } from "antd";
 import config from "../../config/menuConfig";
 
-export default function MyMenu() {
+export default function MyMenu({ add }) {
   const [userInfo, setUserInfo] = useState({ role: {} });
   useEffect(() => {
     const info = JSON.parse(localStorage.userInfo || "{}");
@@ -32,6 +32,7 @@ export default function MyMenu() {
     <Menu
       theme="dark"
       mode="inline"
+      onClick={add}
       defaultSelectedKeys={["/home"]}
       defaultOpenKeys={["/home"]}
       items={deepMenus(config)}
